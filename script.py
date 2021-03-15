@@ -46,41 +46,99 @@ def input_morning_session_P2P():
     print("Please select your role during this Morning Session.")
     print("1-Master of the meeting\n2- Presenter\n3-Code Reviewer")
     global role
+
     print("Did the presenter speak loud enough? [Yes/No]")
     global presenter_sound_level
+
     print("Presenter performance - on a scale of 1-5 (1 - very difficult, 5 -very easy), how easy it was to understand the presenter's wording?")
     global preseneter_understand_level
+
     print("Did the presenter provide a clear description of the project context?")
     print("1-Yes, the presentation was well structured and easy to follow.")
     print("2-Yes, but we needed to ask a few additional questions.")
     print("3-Not really, we needed to ask a lot of questions to guide the presenter.")
     print("4-Not at all, the impression was that presenter is not talking about their own work.")
     global presenter_clear_context
+
+    print("Did the presenter give a clear presentation of the code?")
+    print("Yes, the presentation was well structured and easy to follow.")
+    print("Yes, but we needed to ask a few additional questions.")
+    print("Not really, we needed to ask a lot of questions to guide the presenter.")
+    print("Not at all, the impression was that presenter is not talking about their own work.")
     global presenter_clear_code
+
+    print("How did the presenter respond to the given feedback?")
+    print("The presenter was super happy because they were stuck and given feedback help them to move forward.")
+    print("The presenter was happy to discover some room for improvements.")
+    print("The presenter was unhappy with the given feedback but was discussing it in a polite way.")
+    print("The presenter was unhappy with given feedback and rude to other team members.")
     global presenter_feedback_respond
+    
+    print("Please enter the link to a Github issue you created with your team.")
     global gh_link
+
+    print("How would you rate this Morning Session?")
     global rate_session
+    print("Do you have anything you’d like to add about this Morning Session? (Optional)")
     global anything_to_add
 
-    role.click()
-    presenter_sound_level.click()
-    preseneter_understand_level.click()
-    presenter_clear_context.click()
-    presenter_clear_code.click()
-    presenter_feedback_respond.click()
-    gh_link.send_keys("https://github.com/Anas-jaf")
-    rate_session.click()
-    anything_to_add.send_keys("I Have Nothing to Add")
+    # role.click()
+    # presenter_sound_level.click()
+    # preseneter_understand_level.click()
+    # presenter_clear_context.click()
+    # presenter_clear_code.click()
+    # presenter_feedback_respond.click()
+    # gh_link.send_keys("https://github.com/Anas-jaf")
+    # rate_session.click()
+    # anything_to_add.send_keys("I Have Nothing to Add")
 
 
 def input_fill_daily_standup():
+    print("Did you achieve your goals from yesterday?")
+    print("1- Yes, all of them \n2- Some of them \n3- None of them ")
     global achive_opts_select
+    
+    print("What went well today?")
     global went_well
+    
+    print("What (if anything) blocked you from achieving your goals today")
+    print("1- None\n")
+    print("2- Coding Partner Issues\n")
+    print("3- Personal Problems\n")
+    print("4- Financial Problems\n")
+    print("5- Not reaching out for help from others\n")
+    print("6- Low Productivity\n")
+    print("L- ow Confidence\n")
+    print("7- High Stress Levels\n")
+    print("8- Tiredness\n")
+    print("9- Low Understanding of Topic\n")
+    print("10- Low English Ability\n")
+    print("11- Poor Time Management\n")
+    print("12- Low Motivation\n")
+    print("13- Being Absent\n")
+    print("14- Illness\n")
+    print("15- Electricity Problems\n")
+    print("16- Internet Problems\n")
+    print("17- Hardware Issues\n")
+    print("18- Waiting for Re-pair\n")
+    print("19- Working Alone\n")
+    print("20- Problematic Code Reviews\n")
+    print("21- Waiting for Code Reviews\n")
+    print("22- Inadequate Learning Materials\n")
     global sth_blocked_you_select
+    print("What are your three goals for tomorrow? ")
+    print(" goal 1 ?")
     global goal_1
+
+    print(" goal 2 ?")
     global goal_2
+
+    print(" goal 3 ?")
     global goal_3
+
+    print("What will you do tomorrow to ensure you reach your goals? ")
     global to_ensure
+    print("What was your overall motivation level today?")
     global emotion_select
 
 def go_to_dashboard ():
