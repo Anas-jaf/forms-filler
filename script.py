@@ -10,6 +10,7 @@ import pickle
 import time
 import json
 import os
+import ast
 
 # global variable
 driver = webdriver.Chrome()
@@ -52,24 +53,22 @@ def go_to_dashboard ():
         load_cookie()
         
 def create_cookie():
-    f= open("cookie.json","w+")
-    f.close()
-    cookies = pickle.load(open("cookie.json", "rb"))
-    for cookie in cookies:
-        driver.add_cookie(cookie)
-        with open('cookie.json', 'r', newline='') as inputdata:
-            cookies = json.loads(inputdata.read())
-    curcookie = cookies[0].pop('sameSite')
-    input("Enter your login credintials and press any key ...")
-    pickle.dump( driver.get_cookies() , open("cookies.pkl","wb"))
+    input("Login to your microverse account then press any key ...")
+    cookies = driver.get_cookies()
+    if os.name == 'posix':
+        os.system(f'sudo echo {cookies} | sudo tee cookies.json')
+    else:
+        os.system(f'${cookies} | Out-File cookies.json')
+        
 
 def load_cookie():
-    cookies = pickle.load(open("cookies.pkl", "rb"))
-    for cookie in cookies:
-        driver.add_cookie(cookie)
-    # ~ driver.add_cookie(curcookie)
-    print("adding the microverse cookie !")
-    # ~ time.sleep(5)
+    print("adding Microverse cookie !")
+    with open('cookies.json', 'r') as file:
+    data = file.read().replace('\n', '')
+    res1 = ast.literal_eval(data)
+    for cookie in res1:
+        driver.add_cookie(cookie)   
+        
 
 def wizard_morning_session_P2P():
     while(1):
@@ -596,9 +595,7 @@ if __name__ == "__main__":
         # ~ fill_daily_standup(x)
     # ~ 2/19 2/26 1/3 12/3
 
-    fill_morning_session_P2P()
-
-            
+    ask_user()
     # x=5
     # month="03"  
     # x= str(x).zfill(2)
