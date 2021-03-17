@@ -64,7 +64,7 @@ def create_cookie():
 def load_cookie():
     print("adding Microverse cookie !")
     with open('cookies.json', 'r') as file:
-    data = file.read().replace('\n', '')
+        data = file.read().replace('\n', '')
     res1 = ast.literal_eval(data)
     for cookie in res1:
         driver.add_cookie(cookie)   
