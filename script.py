@@ -13,7 +13,7 @@ import os
 import ast
 
 # global variable
-driver = webdriver.Chrome()
+# driver = None
 
 def headless():
     display = Display(visible=0, size=(800, 600))
