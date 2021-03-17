@@ -32,17 +32,17 @@ def screen_clear():
 def ask_user ():
         while(1):
             x = input("Do you want to fill the form with default values ? [Y/n] ")
-        if x  in set(("Y","y","")): 
-            print("filling the forms with the default values")
-            print("pleas wait ....")
-            go_to_dashboard()
-        elif x in set(("n","no","No","N")):
-            print("changing to fill the forms manually ......")
-            screen_clear()
-            # fill_morning_session_P2P
-            wizard_morning_session_P2P()
-            # fill_daily_standup
-            wizard_fill_daily_standup()
+            if x  in set(("Y","y","")): 
+                print("filling the forms with the default values")
+                print("pleas wait ....")
+                go_to_dashboard()
+            elif x in set(("n","no","No","N")):
+                print("changing to fill the forms manually ......")
+                screen_clear()
+                # fill_morning_session_P2P
+                wizard_morning_session_P2P()
+                # fill_daily_standup
+                wizard_fill_daily_standup()
 
 def go_to_dashboard ():
     global driver 
