@@ -49,7 +49,7 @@ def go_to_dashboard ():
     driver = webdriver.Chrome()
     driver.get("https://dashboard.microverse.org/")
     try:
-        load_cookie
+        load_cookie()
     except:
         create_cookie()
         load_cookie()
