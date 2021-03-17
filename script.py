@@ -35,6 +35,7 @@ def ask_user ():
         if x  in set(("Y","y","")): 
             print("filling the forms with the default values")
             print("pleas wait ....")
+            go_to_dashboard()
         elif x in set(("n","no","No","N")):
             print("changing to fill the forms manually ......")
             screen_clear()
@@ -44,6 +45,8 @@ def ask_user ():
             wizard_fill_daily_standup()
 
 def go_to_dashboard ():
+    global driver 
+    driver = webdriver.Chrome()
     driver.get("https://dashboard.microverse.org/")
     load_cookie()
     try:
