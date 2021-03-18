@@ -1,20 +1,43 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from pyvirtualdisplay import Display
-import pickle
-import time
-import json
+# Coded by Anas 
+# Looking to work with other hit me up on my email ansas4565@gmail.com <--
 import os
 import ast
+import time
+import json
+from selenium import webdriver
+import geckodriver_autoinstaller
+from pyvirtualdisplay import Display
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
-# global variable
-# driver = None
-
+# geckodriver_autoinstaller.install()
+banner = '''
+███╗   ███╗██╗ ██████╗██████╗  ██████╗ ██╗   ██╗███████╗██████╗ ███████╗███████╗      
+████╗ ████║██║██╔════╝██╔══██╗██╔═══██╗██║   ██║██╔════╝██╔══██╗██╔════╝██╔════╝      
+██╔████╔██║██║██║     ██████╔╝██║   ██║██║   ██║█████╗  ██████╔╝███████╗█████╗        
+██║╚██╔╝██║██║██║     ██╔══██╗██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗╚════██║██╔══╝        
+██║ ╚═╝ ██║██║╚██████╗██║  ██║╚██████╔╝ ╚████╔╝ ███████╗██║  ██║███████║███████╗      
+╚═╝     ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝      
+                                                                                      
+                                    ███████╗███╗   ██╗ ██████╗ ███╗   ███╗ █████╗     
+                                    ██╔════╝████╗  ██║██╔════╝ ████╗ ████║██╔══██╗    
+                                    █████╗  ██╔██╗ ██║██║  ███╗██╔████╔██║███████║    
+                                    ██╔══╝  ██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║    
+                                    ███████╗██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║    
+                                    ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝    
+                                                                                      
+                                        ███████╗ ██████╗ ██████╗  ██████╗███████╗     
+                                        ██╔════╝██╔═══██╗██╔══██╗██╔════╝██╔════╝     
+                                        █████╗  ██║   ██║██████╔╝██║     █████╗       
+                                        ██╔══╝  ██║   ██║██╔══██╗██║     ██╔══╝       
+                                        ██║     ╚██████╔╝██║  ██║╚██████╗███████╗     
+                                        ╚═╝      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚══════╝     
+coded by anas
+'''
 def headless():
     display = Display(visible=0, size=(800, 600))
     display.start()
@@ -31,11 +54,16 @@ def screen_clear():
 
 def ask_user ():
         while(1):
+            print(banner)
             x = input("Do you want to fill the form with default values ? [Y/n] ")
             if x  in set(("Y","y","")): 
                 print("filling the forms with the default values")
                 print("pleas wait ....")
+                # uncomment the function that you want the script to execute
                 go_to_dashboard()
+                fill_morning_session_P2P()
+                fill_daily_standup()
+                # fill_retrospective()
             elif x in set(("n","no","No","N")):
                 print("changing to fill the forms manually ......")
                 screen_clear()
@@ -46,6 +74,10 @@ def ask_user ():
 
 def go_to_dashboard ():
     global driver 
+    # uncomment your browser 
+    # driver = webdriver.Firefox()
+    # driver = webdriver.Opera()
+    # driver = webdriver.Edge()
     driver = webdriver.Chrome()
     driver.get("https://dashboard.microverse.org/")
     try:
@@ -439,27 +471,27 @@ def wizard_fill_retrospective():
     print("10- Always missing our meetings")
     print("11- I don't have a mentor")
     my_mentor_is = int(input("choose one : "))
-    if my_mentor_is is 1:
+    if my_mentor_is == 1:
         my_mentor_is = "retrospective_mentor_feedback_meeting_with_me_weekly"
-    elif my_mentor_is is 2:
+    elif my_mentor_is == 2:
         my_mentor_is = "retrospective_mentor_feedback_not_meeting_with_me_weekly"
-    elif my_mentor_is is 3:
+    elif my_mentor_is == 3:
         my_mentor_is = "retrospective_mentor_feedback_not_checking_on_me"
-    elif my_mentor_is is 4:
+    elif my_mentor_is == 4:
         my_mentor_is = "retrospective_mentor_feedback_patient"
-    elif my_mentor_is is 5:
+    elif my_mentor_is == 5:
         my_mentor_is = "retrospective_mentor_feedback_helpful"
-    elif my_mentor_is is 6:
+    elif my_mentor_is == 6:
         my_mentor_is = "retrospective_mentor_feedback_friendly"
-    elif my_mentor_is is 7:
+    elif my_mentor_is == 7:
         my_mentor_is = "retrospective_mentor_feedback_unfriendly"
-    elif my_mentor_is is 8:
+    elif my_mentor_is == 8:
         my_mentor_is = "retrospective_mentor_feedback_supportive"
-    elif my_mentor_is is 9:
+    elif my_mentor_is == 9:
         my_mentor_is = "retrospective_mentor_feedback_kind"
-    elif my_mentor_is is 10:
+    elif my_mentor_is == 10:
         my_mentor_is = "retrospective_mentor_feedback_always_missing_our_meetings"
-    elif my_mentor_is is 11:
+    elif my_mentor_is == 11:
         my_mentor_is = "retrospective_mentor_feedback_i_dont_have_a_mentor"
     else:
         print("invalid option")
