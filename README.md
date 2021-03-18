@@ -6,10 +6,15 @@ you can fill the forms with the default values or with wanted values and you wil
  
 installation  
 -`git clone https://github.com/Anas-jaf/forms-filler.git`
+
 -`cd forms-filler`
+
 -`pip install -r requirements.txt`
+
 -then manually go to line 50 and uncomment the browser you want to use 
+
 -go to line 40 and uncomment the function that you want the script to fill or execute
+
 -`python3 script.py`
 
 this is  working project in progress it is not complete yet , later i will add the option to start tracking on clockify and start the script with the system and make the script fill the form based on the day 
