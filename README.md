@@ -11,9 +11,9 @@ installation
 
 -`pip install -r requirements.txt`
 
--then manually go to line 50 and uncomment the browser you want to use 
+-then manually go to line 50 in script.py  and uncomment the browser you want to use 
 
--go to line 40 and uncomment the function that you want the script to fill or execute
+-go to line 40 in script.py and uncomment the function that you want the script to fill or execute
 
 -`python3 script.py`
 
